@@ -63,7 +63,7 @@ public class UserServlet extends HttpServlet {
             }
         }
     }
-
+    // ==================== 1. 查全部用户（列表页） ====================
     private void listUsers(HttpServletRequest req, HttpServletResponse resp) throws SQLException, ServletException, IOException {
         ArrayList<User> users = userService.findAllUsers();
         req.setAttribute("users", users);
@@ -79,7 +79,7 @@ public class UserServlet extends HttpServlet {
         }
         req.getRequestDispatcher("/user-form.jsp").forward(req,resp);
     }
-
+    // ==================== 3. 修改用户 ====================
     private void insertUser(HttpServletRequest req, HttpServletResponse resp) throws SQLException, IOException, ServletException {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
@@ -95,7 +95,7 @@ public class UserServlet extends HttpServlet {
             req.getRequestDispatcher("/user-form.jsp").forward(req, resp);
         }
     }
-
+    // ==================== 2. 增加用户（新增/注册） ====================
     private void updateUser(HttpServletRequest req, HttpServletResponse resp) throws SQLException, IOException {
         int id = Integer.parseInt(req.getParameter("id"));
         String username = req.getParameter("username");
@@ -105,13 +105,13 @@ public class UserServlet extends HttpServlet {
         userService.updateUser(user);
         resp.sendRedirect("user?action=list");
     }
-
+    // ==================== 4. 删除用户 ====================
     private void deleteUser(HttpServletRequest req, HttpServletResponse resp) throws SQLException, IOException {
         int id = Integer.parseInt(req.getParameter("id"));
         userService.deleteUser(id);
         resp.sendRedirect("user?action=list");
     }
-    
+    // ==================== 5. 搜索用户（模糊查询） ====================
     private void searchUsers(HttpServletRequest req, HttpServletResponse resp) throws SQLException, ServletException, IOException {
         String searchPattern = req.getParameter("search");
         ArrayList<User> users;

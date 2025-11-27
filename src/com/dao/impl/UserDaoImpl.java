@@ -6,7 +6,7 @@ import com.utils.JDBCUtils;
 
 import java.sql.*;
 import java.util.ArrayList;
-
+//增
 public class UserDaoImpl implements UserDao {
     @Override
     public void insert(User user) throws SQLException {
@@ -23,7 +23,7 @@ public class UserDaoImpl implements UserDao {
             JDBCUtils.close(con, ps, null);
         }
     }
-
+//改
     @Override
     public void update(User user) throws SQLException {
         Connection con = null;
@@ -40,7 +40,7 @@ public class UserDaoImpl implements UserDao {
             JDBCUtils.close(con, ps, null);
         }
     }
-
+//删
     @Override
     public void delete(int id) throws SQLException {
         Connection con = null;
@@ -55,7 +55,7 @@ public class UserDaoImpl implements UserDao {
             JDBCUtils.close(con, ps, null);
         }
     }
-
+//查
     @Override
     public User selectById(int id) throws SQLException {
         Connection con = null;
@@ -77,7 +77,7 @@ public class UserDaoImpl implements UserDao {
             JDBCUtils.close(con, ps, rs);
         }
     }
-
+//查全部
     @Override
     public ArrayList<User> selectAll() throws SQLException {
         Connection con = null;
@@ -123,7 +123,7 @@ public class UserDaoImpl implements UserDao {
             JDBCUtils.close(con, ps, rs);
         }
     }
-    
+    //模糊查询
     @Override
     public ArrayList<User> selectByUsernamePattern(String pattern) throws SQLException {
         Connection con = null;

@@ -40,7 +40,7 @@ public class UserServiceImpl implements UserService {
     public ArrayList<User> findAllUsers() throws SQLException {
         return userDao.selectAll();
     }
-
+    // ==================== 根据用户名精确查 ====================
     @Override
     public User findUserByUsername(String username) throws SQLException {
         return userDao.selectByUsername(username);
